@@ -29,95 +29,142 @@
 
         font-family: 'Inter', sans-serif;
 
-        background: black;
+        background: #050505;
         color: white;
 
         overflow-x: hidden;
     }
 
-    /* ---------------- BACKGROUND ---------------- */
+    /* ---------------- HERO SECTION ---------------- */
 
-    .background-overlay {
+    .hero {
 
-        position: fixed;
+        position: relative;
+
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    /* ---------------- IMAGE SLIDER ---------------- */
+
+    .slider {
+
+        position: absolute;
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+    }
+
+    .slides {
+
+        display: flex;
+
+        width: 600%;
+        height: 100%;
+
+        animation: slide 36s infinite ease-in-out;
+    }
+
+    .slides img {
+
+        width: 100vw;
+        height: 100vh;
+
+        object-fit: cover;
+
+        flex-shrink: 0;
+
+        filter: brightness(0.5);
+    }
+
+    @keyframes slide {
+
+        0% {
+            transform: translateX(0vw);
+        }
+
+        14% {
+            transform: translateX(0vw);
+        }
+
+        18% {
+            transform: translateX(-100vw);
+        }
+
+        32% {
+            transform: translateX(-100vw);
+        }
+
+        36% {
+            transform: translateX(-200vw);
+        }
+
+        50% {
+            transform: translateX(-200vw);
+        }
+
+        54% {
+            transform: translateX(-300vw);
+        }
+
+        68% {
+            transform: translateX(-300vw);
+        }
+
+        72% {
+            transform: translateX(-400vw);
+        }
+
+        86% {
+            transform: translateX(-400vw);
+        }
+
+        90% {
+            transform: translateX(-500vw);
+        }
+
+        100% {
+            transform: translateX(-500vw);
+        }
+    }
+
+    /* ---------------- DARK OVERLAY ---------------- */
+
+    .overlay {
+
+        position: absolute;
         inset: 0;
 
         background:
             linear-gradient(
-                rgba(0,0,0,0.55),
-                rgba(0,0,0,0.82)
-            ),
-            url('Nathan_bg.jpg');
+                rgba(0,0,0,0.45),
+                rgba(0,0,0,0.78)
+            );
 
-        background-size: cover;
-        background-position: center;
-
-        animation: slowZoom 20s ease-in-out infinite alternate;
-
-        z-index: -3;
+        z-index: 1;
     }
 
-    @keyframes slowZoom {
+    /* ---------------- HERO CONTENT ---------------- */
 
-        from {
-            transform: scale(1);
-        }
+    .hero-content {
 
-        to {
-            transform: scale(1.08);
-        }
-    }
+        position: relative;
 
-    /* ---------------- GLOW ---------------- */
+        z-index: 2;
 
-    .glow {
-
-        position: fixed;
-
-        width: 700px;
-        height: 700px;
-
-        background: rgba(167, 139, 250, 0.16);
-
-        filter: blur(140px);
-
-        top: -250px;
-        right: -100px;
-
-        z-index: -2;
-    }
-
-    /* ---------------- HERO ---------------- */
-
-    .hero {
-
-        min-height: 100vh;
+        width: 100%;
+        height: 100%;
 
         display: flex;
+        flex-direction: column;
+
         justify-content: center;
         align-items: center;
 
-        padding: 40px;
-    }
-
-    .hero-card {
-
-        width: 92%;
-        max-width: 1200px;
-
-        padding: 50px;
-
-        border-radius: 36px;
-
-        background: rgba(255,255,255,0.05);
-
-        backdrop-filter: blur(20px);
-
-        border: 1px solid rgba(255,255,255,0.08);
-
-        box-shadow: 0 0 80px rgba(0,0,0,0.45);
-
         text-align: center;
+
+        padding: 20px;
     }
 
     h1 {
@@ -127,118 +174,76 @@
         font-weight: 700;
 
         letter-spacing: -4px;
+
+        margin-bottom: 15px;
     }
 
     .subtitle {
 
-        margin-top: 12px;
-        margin-bottom: 45px;
+        color: #d1d5db;
 
-        color: #b3b3b3;
+        font-size: 1rem;
 
         letter-spacing: 2px;
 
-        font-size: 0.95rem;
+        margin-bottom: 35px;
     }
 
-    /* ---------------- SLIDER ---------------- */
+    /* ---------------- CUSTOM TEXT BOX ---------------- */
 
-    .slider {
+    .custom-text {
 
-        width: 100%;
-        overflow: hidden;
+        max-width: 700px;
 
-        border-radius: 28px;
+        padding: 20px 28px;
+
+        border-radius: 24px;
+
+        background: rgba(255,255,255,0.06);
+
+        backdrop-filter: blur(14px);
+
+        border: 1px solid rgba(255,255,255,0.08);
+
+        color: #e5e7eb;
+
+        font-size: 1rem;
+
+        line-height: 1.9;
+
+        box-shadow: 0 0 40px rgba(0,0,0,0.25);
     }
 
-    .slides {
+    /* ---------------- SCROLL TEXT ---------------- */
 
-        display: flex;
+    .scroll-text {
 
-        width: 600%;
+        position: absolute;
 
-        animation: slide 30s infinite;
-    }
+        bottom: 35px;
 
-    .slides img {
-
-        width: 100%;
-        height: 500px;
-
-        object-fit: cover;
-
-        border-radius: 28px;
-
-        flex-shrink: 0;
-
-        transition: 0.35s ease;
-    }
-
-    .slides img:hover {
-
-        transform: scale(1.02);
-
-        filter: brightness(1.05);
-    }
-
-    @keyframes slide {
-
-        0% {
-            transform: translateX(0%);
-        }
-
-        15% {
-            transform: translateX(0%);
-        }
-
-        20% {
-            transform: translateX(-100%);
-        }
-
-        35% {
-            transform: translateX(-100%);
-        }
-
-        40% {
-            transform: translateX(-200%);
-        }
-
-        55% {
-            transform: translateX(-200%);
-        }
-
-        60% {
-            transform: translateX(-300%);
-        }
-
-        75% {
-            transform: translateX(-300%);
-        }
-
-        80% {
-            transform: translateX(-400%);
-        }
-
-        95% {
-            transform: translateX(-400%);
-        }
-
-        100% {
-            transform: translateX(-500%);
-        }
-    }
-
-    /* ---------------- BOTTOM TEXT ---------------- */
-
-    .bottom-text {
-
-        margin-top: 28px;
-
-        color: #8f8f8f;
+        color: rgba(255,255,255,0.7);
 
         font-size: 0.9rem;
 
-        letter-spacing: 1px;
+        letter-spacing: 2px;
+
+        animation: float 2s infinite ease-in-out;
+    }
+
+    @keyframes float {
+
+        0% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(8px);
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
     }
 
     /* ---------------- MESSAGE SECTION ---------------- */
@@ -247,13 +252,13 @@
 
         min-height: 100vh;
 
-        background: #040404;
+        background: #050505;
 
         display: flex;
         justify-content: center;
         align-items: center;
 
-        padding: 80px 20px;
+        padding: 100px 25px;
     }
 
     .message-box {
@@ -267,40 +272,84 @@
 
         font-size: clamp(2.5rem, 6vw, 5rem);
 
-        margin-bottom: 25px;
-
-        letter-spacing: -2px;
+        margin-bottom: 30px;
 
         line-height: 1.1;
+
+        letter-spacing: -2px;
     }
 
     .message-box p {
 
         color: #9ca3af;
 
+        font-size: 1.15rem;
+
+        line-height: 2;
+    }
+
+    /* ---------------- EXTRA TEXT SECTION ---------------- */
+
+    .extra-section {
+
+        min-height: 100vh;
+
+        background: black;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 100px 25px;
+    }
+
+    .extra-box {
+
+        max-width: 800px;
+
+        text-align: center;
+    }
+
+    .extra-box h3 {
+
+        font-size: clamp(2rem, 5vw, 4rem);
+
+        margin-bottom: 25px;
+
+        letter-spacing: -2px;
+    }
+
+    .extra-box p {
+
+        color: #a1a1aa;
+
         font-size: 1.1rem;
 
-        line-height: 1.9;
+        line-height: 2;
     }
 
     /* ---------------- MOBILE ---------------- */
 
     @media (max-width: 900px) {
 
-        .hero-card {
-            padding: 25px;
-        }
-
-        .slides img {
-            height: 300px;
-        }
-
         h1 {
             font-size: 4rem;
         }
 
-        .message-box p {
+        .subtitle {
+            font-size: 0.85rem;
+        }
+
+        .custom-text {
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .message-box p,
+        .extra-box p {
+
             font-size: 1rem;
+            line-height: 1.8;
         }
     }
 
@@ -312,17 +361,28 @@
 <body>
 
 ```
-<!-- BACKGROUND -->
-
-<div class="background-overlay"></div>
-
-<div class="glow"></div>
-
 <!-- HERO SECTION -->
 
 <section class="hero">
 
-    <div class="hero-card">
+    <div class="slider">
+
+        <div class="slides">
+
+            <img src="1.jpg">
+            <img src="2.jpg">
+            <img src="3.jpg">
+            <img src="4.jpg">
+            <img src="5.jpg">
+            <img src="6.jpg">
+
+        </div>
+
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
 
         <h1>A & S</h1>
 
@@ -330,32 +390,29 @@
             some moments deserve their own place.
         </p>
 
-        <!-- IMAGE SLIDER -->
+        <!-- CHANGE THIS TEXT -->
 
-        <div class="slider">
+        <div class="custom-text">
 
-            <div class="slides">
+            replace this with your own message.
+            <br><br>
 
-                <img src="1.jpg">
-                <img src="2.jpg">
-                <img src="3.jpg">
-                <img src="4.jpg">
-                <img src="5.jpg">
-                <img src="6.jpg">
-
-            </div>
+            you can write literally anything here:
+            memories, paragraphs, inside jokes,
+            dates, quotes, or whatever emotional
+            shit you want 😭
 
         </div>
 
-        <p class="bottom-text">
-            written somewhere between midnight and forever.
-        </p>
+        <div class="scroll-text">
+            scroll ↓
+        </div>
 
     </div>
 
 </section>
 
-<!-- BLACK MESSAGE SECTION -->
+<!-- MESSAGE SECTION -->
 
 <section class="message-section">
 
@@ -366,12 +423,39 @@
         </h2>
 
         <p>
-            some people arrive quietly and somehow become
-            part of every memory after that.
+
+            replace this section too.
+
             <br><br>
-            maybe that’s what love really is —
-            finding someone that turns ordinary days
-            into something worth remembering forever.
+
+            this is meant for a longer message.
+            keep it emotional but minimal.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- EXTRA SECTION -->
+
+<section class="extra-section">
+
+    <div class="extra-box">
+
+        <h3>
+            maybe some stories really do stay forever.
+        </h3>
+
+        <p>
+
+            you can keep adding more sections like this.
+            <br><br>
+
+            photos, letters, timelines,
+            favorite songs, memories —
+            whatever fits the vibe.
+
         </p>
 
     </div>
