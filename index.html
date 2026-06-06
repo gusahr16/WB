@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>A & S</title>
+
+<link rel="icon" type="image/png" href="logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+
+        font-family: 'Inter', sans-serif;
+
+        background: black;
+        color: white;
+
+        overflow-x: hidden;
+    }
+
+    /* ---------------- BACKGROUND ---------------- */
+
+    .background-overlay {
+
+        position: fixed;
+        inset: 0;
+
+        background:
+            linear-gradient(
+                rgba(0,0,0,0.55),
+                rgba(0,0,0,0.82)
+            ),
+            url('Nathan_bg.jpg');
+
+        background-size: cover;
+        background-position: center;
+
+        animation: slowZoom 20s ease-in-out infinite alternate;
+
+        z-index: -3;
+    }
+
+    @keyframes slowZoom {
+
+        from {
+            transform: scale(1);
+        }
+
+        to {
+            transform: scale(1.08);
+        }
+    }
+
+    /* ---------------- GLOW ---------------- */
+
+    .glow {
+
+        position: fixed;
+
+        width: 700px;
+        height: 700px;
+
+        background: rgba(167, 139, 250, 0.16);
+
+        filter: blur(140px);
+
+        top: -250px;
+        right: -100px;
+
+        z-index: -2;
+    }
+
+    /* ---------------- HERO ---------------- */
+
+    .hero {
+
+        min-height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 40px;
+    }
+
+    .hero-card {
+
+        width: 92%;
+        max-width: 1200px;
+
+        padding: 50px;
+
+        border-radius: 36px;
+
+        background: rgba(255,255,255,0.05);
+
+        backdrop-filter: blur(20px);
+
+        border: 1px solid rgba(255,255,255,0.08);
+
+        box-shadow: 0 0 80px rgba(0,0,0,0.45);
+
+        text-align: center;
+    }
+
+    h1 {
+
+        font-size: clamp(4rem, 10vw, 8rem);
+
+        font-weight: 700;
+
+        letter-spacing: -4px;
+    }
+
+    .subtitle {
+
+        margin-top: 12px;
+        margin-bottom: 45px;
+
+        color: #b3b3b3;
+
+        letter-spacing: 2px;
+
+        font-size: 0.95rem;
+    }
+
+    /* ---------------- SLIDER ---------------- */
+
+    .slider {
+
+        width: 100%;
+        overflow: hidden;
+
+        border-radius: 28px;
+    }
+
+    .slides {
+
+        display: flex;
+
+        width: 600%;
+
+        animation: slide 30s infinite;
+    }
+
+    .slides img {
+
+        width: 100%;
+        height: 500px;
+
+        object-fit: cover;
+
+        border-radius: 28px;
+
+        flex-shrink: 0;
+
+        transition: 0.35s ease;
+    }
+
+    .slides img:hover {
+
+        transform: scale(1.02);
+
+        filter: brightness(1.05);
+    }
+
+    @keyframes slide {
+
+        0% {
+            transform: translateX(0%);
+        }
+
+        15% {
+            transform: translateX(0%);
+        }
+
+        20% {
+            transform: translateX(-100%);
+        }
+
+        35% {
+            transform: translateX(-100%);
+        }
+
+        40% {
+            transform: translateX(-200%);
+        }
+
+        55% {
+            transform: translateX(-200%);
+        }
+
+        60% {
+            transform: translateX(-300%);
+        }
+
+        75% {
+            transform: translateX(-300%);
+        }
+
+        80% {
+            transform: translateX(-400%);
+        }
+
+        95% {
+            transform: translateX(-400%);
+        }
+
+        100% {
+            transform: translateX(-500%);
+        }
+    }
+
+    /* ---------------- BOTTOM TEXT ---------------- */
+
+    .bottom-text {
+
+        margin-top: 28px;
+
+        color: #8f8f8f;
+
+        font-size: 0.9rem;
+
+        letter-spacing: 1px;
+    }
+
+    /* ---------------- MESSAGE SECTION ---------------- */
+
+    .message-section {
+
+        min-height: 100vh;
+
+        background: #040404;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 80px 20px;
+    }
+
+    .message-box {
+
+        max-width: 950px;
+
+        text-align: center;
+    }
+
+    .message-box h2 {
+
+        font-size: clamp(2.5rem, 6vw, 5rem);
+
+        margin-bottom: 25px;
+
+        letter-spacing: -2px;
+
+        line-height: 1.1;
+    }
+
+    .message-box p {
+
+        color: #9ca3af;
+
+        font-size: 1.1rem;
+
+        line-height: 1.9;
+    }
+
+    /* ---------------- MOBILE ---------------- */
+
+    @media (max-width: 900px) {
+
+        .hero-card {
+            padding: 25px;
+        }
+
+        .slides img {
+            height: 300px;
+        }
+
+        h1 {
+            font-size: 4rem;
+        }
+
+        .message-box p {
+            font-size: 1rem;
+        }
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- BACKGROUND -->
+
+<div class="background-overlay"></div>
+
+<div class="glow"></div>
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+    <div class="hero-card">
+
+        <h1>A & S</h1>
+
+        <p class="subtitle">
+            some moments deserve their own place.
+        </p>
+
+        <!-- IMAGE SLIDER -->
+
+        <div class="slider">
+
+            <div class="slides">
+
+                <img src="1.jpg">
+                <img src="2.jpg">
+                <img src="3.jpg">
+                <img src="4.jpg">
+                <img src="5.jpg">
+                <img src="6.jpg">
+
+            </div>
+
+        </div>
+
+        <p class="bottom-text">
+            written somewhere between midnight and forever.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- BLACK MESSAGE SECTION -->
+
+<section class="message-section">
+
+    <div class="message-box">
+
+        <h2>
+            for the moments that felt infinite.
+        </h2>
+
+        <p>
+            some people arrive quietly and somehow become
+            part of every memory after that.
+            <br><br>
+            maybe that’s what love really is —
+            finding someone that turns ordinary days
+            into something worth remembering forever.
+        </p>
+
+    </div>
+
+</section>
+```
+
+</body>
+</html>
